@@ -1,0 +1,29 @@
+<style>
+    #{{ __SELF__.htmlId }} {
+        width: {{ __SELF__.property('width', '100%') }};
+        height: {{ __SELF__.property('height', '800px') }};
+    }
+
+    #{{ __SELF__.htmlId }}-wrapper .leaflet-container {
+        font-size: 12px;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function (event) {
+        const map = new City_Leaflet_Map({
+            containerId: '{{ __SELF__.htmlId }}',
+            lat: {{ __SELF__.property('context').lat }},
+            lng: {{ __SELF__.property('context').lng }},
+            zoom: {{ __SELF__.property('context').zoom }},
+
+            map: {{ __SELF__.property('mapOptions') | raw }},
+            tileLayers: {{ __SELF__.property('tileLayers') | raw }},
+
+            fullscreenControl: true
+        });
+
+        const geoData = {{ __SELF__.property('geoData') | raw }};
+        map.create().draw(geoData);
+    });
+</script>

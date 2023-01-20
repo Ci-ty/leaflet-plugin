@@ -1,0 +1,11 @@
+{
+    "name": "city/leaflet-plugin",
+    "type": "october-plugin",
+    "description": "City Leaflet Maps Plugin for October CMS",
+    "keywords": ["dynamic", "maps", "leaflet", "osm", "openstreetmap", "city", "october", "octobercms"],
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "composer/installers": "~1.0",
+        "city/map-plugin": "~1.0"
+    }
+}

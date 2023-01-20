@@ -1,0 +1,50 @@
+fields:
+    _general_settings:
+        label: 'city.leaflet::lang.settings.general'
+        span: full
+        type: section
+    controls:
+        label: 'city.leaflet::lang.settings.controls'
+        span: full
+        type: checkboxlist
+        quickselect: true
+        default:
+            - zoom
+            - fullscreen
+            - attribution
+    attribution:
+        label: 'city.leaflet::lang.settings.attribution'
+        span: full
+        default: '© <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a>'
+        trigger:
+            action: show
+            field: 'controls[]'
+            condition: 'value[attribution]'
+        type: text
+        comment: 'city.leaflet::lang.settings.attribution_comment'
+    _style_settings:
+        label: 'city.leaflet::lang.settings.style_settings'
+        span: full
+        type: section
+    _providers_hint:
+        type: partial
+        path: $/city/leaflet/models/settings/_providers_hint.php
+    provider:
+        label: 'city.leaflet::lang.settings.provider'
+        emptyOption: 'city.leaflet::lang.settings.provider_options.custom_providers'
+        showSearch: true
+        span: full
+        default: 'osm'
+        type: dropdown
+    custom_providers:
+        label: 'city.leaflet::lang.settings.custom_providers.label'
+        prompt: 'city.leaflet::lang.settings.custom_providers.add'
+        style: default
+        span: full
+        type: repeater
+        form:
+            fields:
+                url:
+                    label: 'city.leaflet::lang.settings.custom_providers.url'
+                    span: full
+                    type: text

@@ -1,0 +1,8 @@
+{% if __SELF__.enabled %}
+
+<div id="{{ __SELF__.htmlId }}-wrapper" class="city-map-wrapper leaflet-map-wrapper">
+    <div id="{{ __SELF__.htmlId }}" class="city-map leaflet-map"></div>
+</div>
+
+{% partial '@init' %}
+{% endif %}

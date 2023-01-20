@@ -1,0 +1,6 @@
+plugin:
+    name: 'city.leaflet::lang.plugin.name'
+    description: 'city.leaflet::lang.plugin.description'
+    author: City
+    icon: icon-leaf
+    homepage: 'https://ci-ty.city'
