@@ -10,20 +10,28 @@
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function (event) {
-        const map = new City_Leaflet_Map({
-            containerId: '{{ __SELF__.htmlId }}',
-            lat: {{ __SELF__.property('context').lat }},
-            lng: {{ __SELF__.property('context').lng }},
-            zoom: {{ __SELF__.property('context').zoom }},
+    (function () {
+        const interval = setInterval(function () {
+            if (! typeof City_Leaflet_Map) {
+                return;
+            }
 
-            map: {{ __SELF__.property('mapOptions') | raw }},
-            tileLayers: {{ __SELF__.property('tileLayers') | raw }},
+            clearInterval(interval);
 
-            fullscreenControl: true
-        });
+            const map = new City_Leaflet_Map({
+                containerId: '{{ __SELF__.htmlId }}',
+                lat: {{ __SELF__.property('context').lat }},
+                lng: {{ __SELF__.property('context').lng }},
+                zoom: {{ __SELF__.property('context').zoom }},
 
-        const geoData = {{ __SELF__.property('geoData') | raw }};
-        map.create().draw(geoData);
-    });
+                map: {{ __SELF__.property('mapOptions') | raw }},
+                tileLayers: {{ __SELF__.property('tileLayers') | raw }},
+
+                fullscreenControl: true
+            });
+
+            const geoData = {{ __SELF__.property('geoData') | raw }};
+            map.create().draw(geoData);
+        }, 500);
+    })();
 </script>
